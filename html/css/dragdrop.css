@@ -37,6 +37,7 @@ main{
   width: 190px;
   height: 530px;
   transition: 0.5s;
+  cursor: pointer;
   animation: upDown3 5s ease-in-out infinite;
   background: url(../images/dragdrop/spaceHuman.svg) center / 100% no-repeat;
   
