@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <title>Space Quiz Project</title>
+    <link rel="icon" href="./common/images/icon/icon_gohome.png">
+    <link rel="stylesheet" href="./common/common.css">
+    <link rel="stylesheet" href="./html/css/index.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="content">
+            <h1></h1>
+            <div class="index_wrap">
+                <a href="./html/dragdrop.html">
+                    <div class="star">
+                        <div class="starImg"></div>
+                        <div class="starText">
+                        </div>
+                    </div>
+                </a>
+                <a href="./html/dragLine.html">
+                    <div class="star">
+                        <div class="starImg"></div>
+                        <div class="starText">
+                        </div>
+                    </div>
+                </a>
+
+                <a href="./html/input.html">
+                    <div class="star">
+                        <div class="starImg"></div>
+                        <div class="starText">
+                        </div>
+                    </div>
+                </a>
+                <a href="./html/ox.html">
+                    <div class="star">
+                        <div class="starImg"></div>
+                        <div class="starText">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="from"></div>
+            <div class="quizBox">
+                <div class="name">
+                    <ul>
+                        <li>기획: 서혜지, 김현우, 윤수진 </li>
+                        <li>디자인: 서혜지, 김현우, 윤수진 </li>
+                        <li>개발: 서혜지, 김현우, 윤수진 </li>
+                        <li>멘토: 김형민</li>
+                    </ul>
+                </div>
+                <div class="source">
+                    <h4>[출처]</h4>
+                    <ul>
+                        <li>배경이미지 : freePik</li>
+                        <li>우주 캐릭터 : freePik</li>
+                        <li>아이콘 : freePik</li>
+                        <li>음원 : pgtd.tistory.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./html/js/scale.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const from = document.querySelector(".from")
+            const quizBox = document.querySelector(".quizBox")
+            const stars = document.querySelectorAll(".index_wrap .star")
+
+            from.addEventListener("click", function () {
+                clickSound();
+                if (!quizBox.classList.contains("on")) {
+                    quizBox.classList.add("on")
+                    this.classList.add("on")
+                    document.querySelector("h1").classList.add("on")
+                } else {
+                    quizBox.classList.remove("on")
+                    this.classList.remove("on")
+                    document.querySelector("h1").classList.remove("on")
+                }
+
+            })
+            window.$callBack.sizez = function () {
+            }
+
+
+            stars.forEach(function (stars) {
+                stars.addEventListener('click', function () {
+                    clickSound();
+                })
+                stars.addEventListener('mouseover', function () { hoverSound(); })
+            })
+        })
+
+
+        // 효과음
+
+
+        function clickSound() {
+            let audio = new Audio('./common/media/click.mp3')
+            audio.play();
+            audio.volume = 0.3;
+        }
+
+        function hoverSound() {
+            let audio = new Audio('./common/media/hoverSound.mp3')
+            audio.play();
+            audio.volume = 0.3;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+/* 애니메이션 */
+@keyframes txt {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(5);
+    background: none;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    background: url(../images/bg/goojop_popup_2.svg) center / contain no-repeat;
+  }
+}
+
+@keyframes backLight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+    background: none;
+  }
+
+  70% {
+    transform: translateX(-50%) scale(1.2);
+    background: url(../images/char/char_01_bg.png) center / contain no-repeat;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    background: url(../images/char/char_01_bg.png) center / contain no-repeat;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes leftRight {
+  0% {
+    left: -50%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    left: 50%;
+  }
+
+  90% {
+    opacity: 1;
+    left: 50%;
+  }
+
+  100% {
+    opacity: 0;
+    left: 130%;
+  }
+}
+
+
+
+
+.popup_container {
+  position: absolute;
+  top: 0;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  z-index: 1;
+}
+
+.popup_container.dim {
+  opacity: 1;
+  visibility: visible;
+}
+.popup_container.cleardim {
+  background:none;
+  opacity: 1;
+  visibility: visible;
+
+}
+
+
+
+/* 다음버튼 팝업*/
+.popup_container .nextBtn {
+  position: absolute;
+  top: 200px;
+  right: -250px;
+  width: 248px;
+  height: 60px;
+  font-size: 35px;
+  line-height: 1.8em;
+  padding-left: 70px;
+  background: url(../images/icon/next_btn.svg) center / contain no-repeat;
+  cursor: pointer;
+  transition: 1s;
+  /* outline: 1px solid; */
+}
+
+.popup_container .nextBtn.on {
+  right: -30px;
+  transition-delay: 1s;
+}
+
+.popup_container .nextBtn .char_05 {
+  position: absolute;
+  top: -155px;
+  right: 20px;
+  transform: scale(0.63);
+  cursor: pointer;
+  z-index: -1;
+}
+
+.popup_container .nextBtn .char_05::before {
+  content: none;
+}
+
+.popup_container .nextBtn:hover .char_05::before {
+  content: "";
+}
+
+
+/* 참 잘했어요 팝업 */
+.popup_container .goodJop_popup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+}
+
+.popup_container.dim .goodJop_popup.on {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup_container .goodJop_popup::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../images/bg/goojop_popup_bg.svg) center / contain no-repeat;
+  opacity: 0.5;
+}
+
+.popup_container.dim .goodJop_popup::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50px;
+  left: 50%;
+  width: 559px;
+  height: 563px;
+  transform: translateX(-50%);
+}
+
+.popup_container.dim .goodJop_popup.on::after {
+  display: block;
+  animation: backLight 0.7s ease-in 1 forwards;
+  animation-delay: 0.5s;
+}
+
+
+.popup_container.dim .goodJop_popup .char_01 {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.popup_container.dim .goodJop_popup .char_01.on {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 476px;
+  height: 511px;
+}
+
+.popup_container.dim .goodJop_popup .char_01::before {
+  content: "";
+  position: absolute;
+  width: 563px;
+  height: 121px;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popup_container.dim .goodJop_popup .char_01.on::before {
+  animation: txt 0.7s ease-in 1 forwards;
+  animation-delay: 0.2s;
+}
+
+.popup_container.dim .goodJop_popup .goButton {
+  display: block;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  box-sizing: border-box;
+  border: 5px solid #A9DBF5;
+  border-radius: 15px;
+  background-color: #FFD54F;
+}
+
+.popup_container.dim .goodJop_popup .goButton:hover {
+  transition: all 0.1s;
+  transform: scale(0.9);
+}
+
+.popup_container.dim .goodJop_popup .goButton.goHome::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: url(../images/icon/icon_gohome.png) center / contain no-repeat;
+}
+
+.popup_container.dim .goodJop_popup .goButton.goReset {
+  bottom: 96px;
+}
+
+.popup_container.dim .goodJop_popup .goButton.goReset::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: url(../images/icon/icon_reset.svg) left 2px center / 90% no-repeat;
+  filter: drop-shadow(3px 2px 0px #e3352960);
+}
+
+
+.popup_container.cleardim .miniPopup2.notice,
+.popup_container.cleardim .miniPopup.notice,
+.popup_container.dim .miniPopup2.notice,
+.popup_container.dim .miniPopup.notice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: max-content;
+  padding: 15px 35px 15px 25px;
+  border: 10px solid #7E3FE3;
+  border-radius: 30px;
+  background-color: rgb(0, 0, 0, 0.9);
+  transition: 0.3s;
+
+}
+.popup_container.cleardim .miniPopup2.notice.on,
+.popup_container.cleardim .miniPopup.notice.on,
+.popup_container.dim .miniPopup2.notice.on,
+.popup_container.dim .miniPopup.notice.on {
+  /* animation: leftRight 2s ease-in-out 1 forwards; */
+  display: flex;
+}
+
+
+.popup_container.cleardim .miniPopup.notice .char_06,
+.popup_container.dim .miniPopup.notice .char_06 {
+  width: 200px;
+  height: 180px;
+}
+.popup_container.cleardim .miniPopup2.notice .char_07,
+.popup_container.dim .miniPopup2.notice .char_07{
+  width: 200px;
+  height: 180px;
+}
+
+.popup_container.dim .miniPopup.notice .char_06::before {
+  width: 23px;
+  height: 17px;
+  top: 20px;
+  left: 6px;
+}
+
+.popup_container.dim .miniPopup.notice.on .char_06::before {
+  animation: rotate 0.7s linear infinite;
+}
+
+.popup_container.dim .miniPopup.notice p {
+  font-size: 55px;
+  text-align: center;
+}
+
+.popup_container.dim:has(>.miniPopup.notice) {
+  transition: unset;
+}
+
+.miniPopup2 .mainGo,
+.miniPopup2 .inputReplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 194px;
+  height: 105px;
+  padding: 10px 0 15px 0;
+  border-radius: 20px;
+  font-size: 36px;
+  cursor: pointer;
+}
+.miniPopup2 .mainGo {
+  background: url(../images/icon/minipopup2_left.png) center / 100% no-repeat;
+
+}
+.miniPopup2 .inputReplay {
+  background: url(../images/icon/minipopup2_right.png) center / 100% no-repeat;
+
+}

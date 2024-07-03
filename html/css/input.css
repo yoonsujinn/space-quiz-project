@@ -1,0 +1,345 @@
+main {
+  background: url(../images/input/inputMain.svg)center/cover no-repeat;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+
+
+.titleImg {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 270px;
+  background: url(../images/input/mainTitle.svg)center/cover no-repeat;
+
+}
+
+.mainObj:nth-child(2) {
+  position: absolute;
+  top: 66px;
+  left: -82px;
+  width: 193px;
+  height: 190px;
+  -webkit-animation: blink1 5.2s ease-in-out infinite;
+          animation: blink1 5.2s ease-in-out infinite;
+  background: url(../images/input/mainObj_1.svg)center/cover no-repeat;
+}
+
+.mainObj:nth-child(3) {
+  position: absolute;
+  top: 383px;
+  right: 70px;
+  width: 60px;
+  height: 58px;
+  -webkit-animation: blink1 4s ease-in-out infinite;
+          animation: blink1 4s ease-in-out infinite;
+  background: url(../images/input/mainObj_1.svg)center/cover no-repeat;
+}
+
+@-webkit-keyframes blink1 {
+  0% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes blink1 {
+  0% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.mainObj:nth-child(4) {
+  position: absolute;
+  top: 100px;
+  right: 110px;
+  width: 68px;
+  height: 135px;
+  -webkit-animation: upDown 4s ease-in-out infinite;
+          animation: upDown 4s ease-in-out infinite;
+  background: url(../images/input/mainObj_2.svg)center/100% no-repeat;
+}
+
+.start_page .mainObj {
+  position: absolute;
+  top: 413px;
+  left: 90px;
+  width: 233px;
+  height: 231px;
+  -webkit-animation: upDown 4s ease-in-out infinite;
+          animation: upDown 4s ease-in-out infinite;
+  background: url(../images/input/mainObj_3.svg)center/100% no-repeat;
+}
+
+
+/* 퀴즈 페이지 시작 */
+
+.quizBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  border-color: #E3DD3F;
+}
+
+/* left */
+table {
+  width: 420px;
+  height: 420px;
+}
+
+table td {
+  position: relative;
+  padding: 4px;
+  background: url(../images/input/inputBg.svg) center/ 94% no-repeat;
+}
+
+table td:has(input) {
+  background: url(../images/input/inputBg2.svg) center / 94% no-repeat;
+}
+
+li[hover-obj] {
+  cursor: pointer;
+}
+
+table td.active {
+  background: url(../images/input/inputBg3.svg) center / 94% no-repeat;
+}
+
+table td input {
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: transparent;
+  font-size: 42px;
+  text-align: center;
+  color: #FF4A72;
+}
+
+table td input.readOnly {
+  color: rgb(27, 88, 255);
+  pointer-events: none;
+  user-select: none;
+}
+
+table td input.readOnly2 {
+  color: rgb(27, 88, 255);
+  pointer-events: none;
+  user-select: none;
+}
+
+table td input.hintOn {
+  color: #00801e;
+  pointer-events: none;
+}
+
+/* table td input.horizon::placeholder {
+
+} */
+
+
+table td input:focus {
+  outline: none;
+}
+
+table td input:focus::-webkit-input-placeholder {
+  outline: none;
+  color: transparent;
+  border: none;
+}
+
+table td input:focus::-moz-placeholder {
+  outline: none;
+  color: transparent;
+  border: none;
+}
+
+table td input:focus:-ms-input-placeholder {
+  outline: none;
+  color: transparent;
+  border: none;
+}
+
+table td input:focus::-ms-input-placeholder {
+  outline: none;
+  color: transparent;
+  border: none;
+}
+
+table td input:focus::placeholder {
+  outline: none;
+  color: transparent;
+  border: none;
+}
+
+.btnBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+}
+
+.btnBox>button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 67px;
+  padding-right: 42px;
+  font-size: 34px;
+  color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.complete .btnBox>button {
+  pointer-events: none;
+}
+
+.hintBtn {
+  background-image: url(../images/input/leftBtn_1.svg);
+}
+.hintBtn.on{pointer-events: none;}
+
+.answerBtn {
+  background-image: url(../images/input/leftBtn_2.svg);
+}
+
+/* right */
+
+.rightBox {
+  position: relative;
+  top: -10px;
+}
+
+.rightBox .tit {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 268px;
+  height: 59px;
+  font-size: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 20px 0 25px 0;
+}
+
+
+.topBox .tit {
+  background-image: url(../images/input/rightTitle_1.svg);
+}
+
+.botBox .tit {
+  background-image: url(../images/input/rightTitle_2.svg);
+}
+
+.tit .char_03 {
+  position: relative;
+  width: 70px;
+  height: 84px;
+  margin: 0 -10px 0 0px;
+  left: -18px;
+  top: -5px;
+  -webkit-animation: none;
+          animation: none;
+}
+
+.rightBox ul li {
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 14px;
+  font-size: 24px;
+  z-index: 10;
+  /* outline: 1px solid #fff; */
+}
+
+.rightBox ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.rightBox ul li .num {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+.rightBox ul li span:last-child{
+  margin-top: -5px;
+  padding: 5px 5px 2px 5px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  /* outline: 1px solid #fff; */
+}
+.rightBox ul li span:last-child:hover{background-color: #176ef1;}
+
+.rightBox .topBox .num {background-color: #14B3F2;}
+.rightBox .botBox .num {background-color: #31C1B7;}
+
+/* add */
+td:has([class*="vertical_"])::after,
+td:has([class*="horizon_"])::after {
+  content: "";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 7px;
+  right: 9px;
+  width: 20px;
+  height: 20px;
+  /* padding: 3px 2px 1px; */
+  background-color: #fff;
+  border: 3px solid;
+  border-radius: 50%;
+  font-size: 20px;
+  scale: 0.65;
+}
+
+td:has([class*="horizon_"])::after {
+  border-color: #11AA9F;
+  color: #11AA9F;
+}
+
+td:has([class*="vertical_"])::after {
+  border-color: #15B4F4;
+  color: #15B4F4;
+}
+
+td:has(input[class*="_1"])::after {
+  content: "1";
+}
+
+td:has(input[class*="_2"])::after {
+  content: "2";
+}
+
+td:has(input[class*="_3"])::after {
+  content: "3";
+}

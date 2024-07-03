@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <!-- <meta name="viewport" content="width=1280, height=720, initial-scale=1.0" /> -->
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <title>Space Quiz Project</title>
+  <link rel="icon" href="../common/images/icon/icon_gohome.png">
+  <link rel="stylesheet" href="../common/common.css" />
+  <link rel="stylesheet" href="./css/dragLine.css">
+</head>
+
+<body>
+  <div id="wrap" class="dragLine">
+    <header style="color:#53E047">
+      <div class="goHome"><a href="../index.html"></a></div>
+      <div class="gameName">단어 연결하기</div>
+      <div class="quizName">dragLine</div>
+    </header>
+
+    <main class="content">
+      <div class="default">
+        <div class="obj1"></div>
+        <div class="obj2"></div>
+        <div class="obj3"></div>
+      </div>
+      <ul class="container">
+        <li class="start_page ">
+          <div class="h1">
+            <div class="title_bg"></div>
+            <div class="title"></div>
+          </div>
+          <div class="char"></div>
+          <button class="btn_start"></button>
+        </li>
+        <li class="quiz_1">
+          <section class="quizBox">
+            <h2>
+              <div class="char_03"></div>
+              <span>알맞은 그림과 연결해 봐!</span>
+            </h2>
+            <span class="quizCnt">총 <span class="thisQuiz">1</span> / 3문제</span>
+            <ul class="leftEx">
+              <li class="ex01"></li>
+              <li class="ex02"></li>
+              <li class="ex03"></li>
+            </ul>
+            <ul class="rightEx">
+              <li class="ex01">목성</li>
+              <li class="ex02">지구</li>
+              <li class="ex03">토성</li>
+            </ul>
+            <canvas class="canvas1" width="740px" height="440px"></canvas>
+            <ul class="lineQuiz" quizCunt="3">
+              <li class=" leftLine">
+                <!-- 1 -->
+                <div class="dragLineObj row1" drag-Line-left="1"></div>
+                <div class="dragLineArea row1" drag-Line-left="1"></div>
+                <!-- 2 -->
+                <div class="dragLineObj row2" drag-Line-left="3"></div>
+                <div class="dragLineArea row2" drag-Line-left="3"></div>
+                <!-- 3 -->
+                <div class="dragLineObj row3" drag-Line-left="2"></div>
+                <div class="dragLineArea row3" drag-Line-left="2"></div>
+              </li>
+              <li class="rightLine">
+                <!-- 1 -->
+                <div class="dragLineObj row1" drag-Line-right="1"></div>
+                <div class="dragLineArea row1" drag-Line-right="1"></div>
+                <!-- 2 -->
+                <div class="dragLineObj row2" drag-Line-right="2"></div>
+                <div class="dragLineArea row2" drag-Line-right="2"></div>
+                <!-- 3 -->
+                <div class="dragLineObj row3" drag-Line-right="3"></div>
+                <div class="dragLineArea row3" drag-Line-right="3"></div>
+              </li>
+            </ul>
+          </section>
+        </li>
+        <li class="quiz_2 ">
+          <section class="quizBox">
+            <h2>
+              <div class="char_03"></div>
+              <span>어떤 상황에 나오는 표정일까?</span>
+            </h2>
+            <span class="quizCnt">총 <span class="thisQuiz">2</span> / 3문제</span>
+
+            <ul class="leftEx">
+              <li class="ex01"></li>
+              <li class="ex02"></li>
+              <li class="ex03"></li>
+            </ul>
+            <ul class="rightEx">
+              <li class="ex01">영화가 너무<br>감동적이예요.</li>
+              <li class="ex02">친구에게 선물을 <br> 받았어요!</li>
+              <li class="ex03">내기에서 졌어요.</li>
+            </ul>
+            <canvas class="canvas2" width="740" height="440"></canvas>
+            <ul class="lineQuiz" quizCunt="3">
+              <li class="leftLine">
+                <!-- 1 -->
+                <div class="dragLineObj row1" drag-Line-left="4"></div>
+                <div class="dragLineArea row1" drag-Line-left="4"></div>
+                <!-- 2 -->
+                <div class="dragLineObj row2" drag-Line-left="5"></div>
+                <div class="dragLineArea row2" drag-Line-left="5"></div>
+                <!-- 3 -->
+                <div class="dragLineObj row3" drag-Line-left="6"></div>
+                <div class="dragLineArea row3" drag-Line-left="6"></div>
+              </li>
+              <li class="rightLine">
+                <!-- 1 -->
+                <div class="dragLineObj row1" drag-Line-right="5"></div>
+                <div class="dragLineArea row1" drag-Line-right="5"></div>
+                <!-- 2 -->
+                <div class="dragLineObj row2" drag-Line-right="4"></div>
+                <div class="dragLineArea row2" drag-Line-right="4"></div>
+                <!-- 3 -->
+                <div class="dragLineObj row3" drag-Line-right="6"></div>
+                <div class="dragLineArea row3" drag-Line-right="6"></div>
+              </li>
+            </ul>
+          </section>
+        </li>
+        <li class="quiz_3">
+          <section class="quizBox">
+            <h2>
+              <div class="char_03"></div>
+              <span>어느 나라 음식일까?</span>
+            </h2>
+            <span class="quizCnt"><span class="thisQuiz">마지막</span> 문제</span>
+
+            <ul class="leftEx">
+              <li class="ex01"></li>
+              <li class="ex02"></li>
+              <li class="ex03"></li>
+            </ul>
+            <ul class="rightEx">
+              <li class="ex01"></li>
+              <li class="ex02"></li>
+              <li class="ex03"></li>
+            </ul>
+            <canvas class="canvas3" width="740" height="440"></canvas>
+            <ul class="lineQuiz" quizCunt="3">
+              <li class="leftLine">
+                <!-- 1 -->
+                <div class="dragLineObj row1" drag-Line-left="7"></div>
+                <div class="dragLineArea row1" drag-Line-left="7"></div>
+                <!-- 2 -->
+                <div class="dragLineObj row2" drag-Line-left="8"></div>
+                <div class="dragLineArea row2" drag-Line-left="8"></div>
+                <!-- 3 -->
+                <div class="dragLineObj row3" drag-Line-left="9"></div>
+                <div class="dragLineArea row3" drag-Line-left="9"></div>
+              </li>
+              <li class="rightLine">
+                <!-- 1 -->
+                <div class="dragLineObj row1" drag-Line-right="7"></div>
+                <div class="dragLineArea row1" drag-Line-right="7"></div>
+                <!-- 2 -->
+                <div class="dragLineObj row2" drag-Line-right="8"></div>
+                <div class="dragLineArea row2" drag-Line-right="8"></div>
+                <!-- 3 -->
+                <div class="dragLineObj row3" drag-Line-right="9"></div>
+                <div class="dragLineArea row3" drag-Line-right="9"></div>
+              </li>
+            </ul>
+          </section>
+        </li>
+      </ul>
+    </main>
+
+    <!-- 다음버튼 미니팝업 -->
+    <section class="popup_container">
+      <div class="nextBtn">
+        다음 문제
+        <div class="char_05"></div>
+      </div>
+    </section>
+  </div>
+  <script src="./js/scale.js"></script>
+  <script src="./js/quiz.js"></script>
+  <script src="./js/dragLine.js"></script>
+  <script>
+    const nextBtn = document.querySelector(".nextBtn");
+    function clearCanvas() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    nextBtn.addEventListener("click", function () {
+      setTimeout(() => {
+        lines = [];
+        clearCanvas()
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>

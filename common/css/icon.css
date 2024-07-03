@@ -1,0 +1,97 @@
+button,
+[class*="icon_"],
+[class*="btn_"] {
+  cursor: pointer;
+  transition: 0.2s;
+  vertical-align: middle;
+}
+
+
+button:hover,
+[class*="icon_"]:hover,
+[class*="btn_"]:hover {
+  transform: scale(1.05);
+}
+
+.btn_start {
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -70px;
+  width: 150px;
+  height: 150px;
+  background: url(../images/icon/start_02.png) center / contain no-repeat;
+}
+
+
+
+
+
+/* 캐릭터 */
+
+/* 잘했어요 팝업캐릭 */
+.char_01{
+  position: absolute;
+  width: 1485px;
+  height: 1595px;
+  background: url(../images/char/char_01.svg) center / contain no-repeat;
+}
+
+.char_02{
+  width: 200px;
+  height: 260px;
+  background: url(../images/char/char_02.svg) center / contain no-repeat;
+}
+
+/* 문제 우주인 */
+.char_03{
+  width: 200px;
+  height: 245px;
+  background: url(../images/char/char_03.svg) center / contain no-repeat;
+  animation: upDown 2s ease-in-out infinite;
+}
+
+/* 다음문제 유도 우주인 */
+.char_05{
+  position: relative;
+  width: 200px;
+  height: 204px;
+  background: url(../images/char/char_05_1.svg) center / contain no-repeat;
+}
+.char_05::before{
+  content: "";
+  position: absolute;
+  left: -41px;
+  bottom: 22px;
+  width: 50px;
+  height: 50px;
+  background: url(../images/char/char_05_2.svg) center / contain no-repeat;
+  animation: blink 1.2s ease-in infinite;
+  z-index: -1;
+}
+
+/* 인풋 미니팝업 우주인 */
+.char_06{
+  position: relative;
+  width: 400px;
+  height: 360px;
+  background: url(../images/char/char_06_1.svg) center / contain no-repeat;
+}
+.char_06::before{
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 38px;
+  width: 45px;
+  height: 34px;
+  background: url(../images/char/char_06_2.svg) center / contain no-repeat;
+}
+
+/* 인풋 미니팝업2 우주인 */
+.char_07{
+  width: 119px;
+  height: 115px;
+  background: url(../images/char/char_07.svg) center / contain no-repeat;
+}
+

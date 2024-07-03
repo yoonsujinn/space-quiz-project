@@ -1,0 +1,340 @@
+main {
+    background: url(../images/dragLine/dragLine_bg.svg)center/cover no-repeat;
+}
+
+main .obj1 {
+    position: absolute;
+    top: 90px;
+    left: 150px;
+    width: 60px;
+    height: 58px;
+    background: url(../images/dragLine/bg01.svg);
+    -webkit-animation: rotate 8s linear infinite;
+    animation: rotate 8s linear infinite;
+}
+
+main .obj2 {
+    position: absolute;
+    top: 170px;
+    right: 60px;
+    width: 160px;
+    height: 138px;
+    background: url(../images/dragLine/bg03.svg) center/contain no-repeat;
+}
+
+main .obj2::after {
+    content: "";
+    position: absolute;
+    top: 62px;
+    left: -58px;
+    width: 160px;
+    height: 180px;
+    background: url(../images/dragLine/bg03_1.svg) center / contain no-repeat;
+    -webkit-animation: blink 2.3s ease-in-out infinite;
+    animation: blink 2.3s ease-in-out infinite;
+}
+
+main .obj3 {
+    position: absolute;
+    top: 530px;
+    right: 250px;
+    width: 80px;
+    height: 78px;
+    background: url(../images/dragLine/bg04.svg) center/contain no-repeat;
+    -webkit-animation: rotate 8s linear infinite;
+    animation: rotate 8s linear infinite;
+}
+
+/* startPage */
+
+.h1 {
+    position: relative;
+}
+
+.h1 .title {
+    position: absolute;
+    width: 410px;
+    height: 260px;
+    top: 93px;
+    left: 50%;
+    background: url(../images/dragLine/title.png)center/contain no-repeat;
+    transform: translateX(-50%);
+    -webkit-filter: drop-shadow(0px 2px 5px #0000007b);
+    filter: drop-shadow(0px 2px 5px #0000007b);
+
+}
+
+.h1 .title_bg {
+    position: absolute;
+    top: 26px;
+    left: 263px;
+    width: 736px;
+    height: 436px;
+    background: url(../images/dragLine/bg02.svg)center/contain no-repeat;
+    -webkit-filter: drop-shadow(0px 0px 30px #ffffff41);
+    filter: drop-shadow(0px 0px 30px #ffffff41);
+}
+
+.char {
+    position: absolute;
+    left: 99px;
+    bottom: 43px;
+    width: 166px;
+    height: 172px;
+    background: url(../../common/images/char/char_04.svg);
+}
+
+.char::after {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: -29px;
+    width: 55px;
+    height: 55px;
+    background: url(../images/dragLine/char_right.svg)center/contain no-repeat;
+    -webkit-animation: upDown 2s ease-in-out infinite;
+    animation: upDown 2s ease-in-out infinite;
+}
+
+.char::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    right: -25px;
+    width: 55px;
+    height: 55px;
+    background: url(../images/dragLine/char_left.svg)center/contain no-repeat;
+    -webkit-animation: upDown 2s ease-in-out infinite;
+    animation: upDown 2s ease-in-out infinite;
+}
+
+/* 퀴즈 */
+.quizBox {
+    border-color: #8cfd8cae;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.quizBox h2 {
+    gap: 22px;
+    font-size: 36px;
+    margin-top: 10px;
+    transform: translateX(-60%);
+    font-weight: 100;
+}
+
+.quizBox h2 .char_03 {
+    width: 80px;
+    height: 125px;
+}
+
+.quizCnt {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+
+.quizCnt .thisQuiz {
+    color: #53E047;
+    margin-left: 4px
+}
+
+.dragLine canvas {
+    position: absolute;
+    top: 140px;
+    left: 216px;
+    /* outline: 1px solid; */
+}
+
+.quizBox ul {
+    position: absolute;
+    /* outline: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 440px;
+}
+
+.quizBox ul>li {
+    display: flex;
+    align-items: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 120px;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.dragLine .dragLineObj {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    /* outline: 1px solid #fff; */
+}
+
+.dragLine .dragLineArea {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url(../images/dragLine/star.svg) center/ contain no-repeat;
+    -webkit-filter: drop-shadow(0px 1px 6px #fff);
+    filter: drop-shadow(0px 1px 6px #fff);
+    pointer-events: none;
+}
+
+.dragLine .lineQuiz>li {
+    position: absolute;
+}
+
+.dragLine .lineQuiz>li>div.row1 {
+    top: -113px;
+}
+
+.dragLine .lineQuiz>li>div.row2 {
+    top: 32px;
+}
+
+.dragLine .lineQuiz>li>div.row3 {
+    top: 179px;
+}
+
+[drag-line-left].complete,
+[drag-line-right].complete {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* background-color: blue; */
+}
+
+[drag-line-left].isDragging,
+[drag-line-right].isDragging {
+    z-index: 10;
+}
+
+/* 문제1 */
+.quiz_1 ul.leftEx {
+    left: 29px;
+}
+
+.quiz_1 ul.rightEx {
+    right: 146px;
+    font-size: 64px;
+}
+
+.quiz_1 .leftEx .ex01 {
+    width: 100px;
+    background: url(../images/dragLine/quiz1_01.svg)center/contain no-repeat;
+}
+
+.quiz_1 .leftEx .ex02 {
+    width: 230px;
+    background: url(../images/dragLine/quiz1_02.svg)center/contain no-repeat;
+}
+
+.quiz_1 .leftEx .ex03 {
+    width: 100px;
+    background: url(../images/dragLine/quiz1_03.svg)center/contain no-repeat;
+}
+
+.quiz_1 .lineQuiz li.leftLine {
+    left: 275px;
+}
+
+.quiz_1 .lineQuiz li.rightLine {
+    left: 851px;
+}
+
+/* 문제2 */
+.quiz_2 ul.leftEx {
+    left: 130px;
+}
+
+.quiz_2 ul.rightEx {
+    right: 60px;
+    font-size: 36px;
+}
+
+.quiz_2 .leftEx .ex01 {
+    width: 86px;
+    background: url(../images/dragLine/quiz2_happy.svg) center/contain no-repeat;
+}
+
+.quiz_2 .leftEx .ex02 {
+    width: 86px;
+    background: url(../images/dragLine/quiz2_sad.svg) center/contain no-repeat;
+}
+
+.quiz_2 .leftEx .ex03 {
+    width: 86px;
+    background: url(../images/dragLine/quiz2_upset.svg) center/contain no-repeat;
+}
+
+.quiz_2 .lineQuiz li.leftLine {
+    left: 275px;
+}
+
+.quiz_2 .lineQuiz li.rightLine {
+    left: 827px;
+}
+
+/* 문제3 */
+.quiz_3 ul.leftEx {
+    height: 450px;
+    left: 60px;
+}
+
+.quiz_3 .leftEx li {
+    width: 250px;
+    height: 140px;
+    border-radius: 20px;
+}
+
+.quiz_3 .leftEx .ex01 {
+    background: url(../images/dragLine/quiz3_01.jpg) center/cover no-repeat;
+}
+
+.quiz_3 .leftEx .ex02 {
+    background: url(../images/dragLine/quiz3_02.jpg) center/cover no-repeat;
+}
+
+.quiz_3 .leftEx .ex03 {
+    background: url(../images/dragLine/quiz3_03.jpg) center/cover no-repeat;
+}
+
+.quiz_3 ul.rightEx {
+    right: 60px;
+    height: 450px;
+}
+
+.quiz_3 .rightEx li {
+    width: 250px;
+    height: 140px;
+    border-radius: 20px;
+}
+
+.quiz_3 .rightEx .ex01 {
+    background: url(../images/dragLine/quiz3_01_01.svg) center/cover no-repeat;
+}
+
+.quiz_3 .rightEx .ex02 {
+    background: url(../images/dragLine/quiz3_02_02.svg) center/cover no-repeat;
+}
+
+.quiz_3 .rightEx .ex03 {
+    background: url(../images/dragLine/quiz3_03_03.svg) center/cover no-repeat;
+}
+
+.quiz_3 .lineQuiz li.leftLine {
+    left: 343px;
+}
+
+.quiz_3 .lineQuiz li.rightLine {
+    left: 807px;
+}

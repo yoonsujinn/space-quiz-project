@@ -1,0 +1,31 @@
+.off{
+    display: none;
+}
+[class*="quiz_"]{
+    display: none;
+}
+[class*="quiz_"].on{
+    display: block;
+}
+
+.quizBox{
+    position: relative;
+    top: 27px;
+    left: 50%;
+    width: 1220px;
+    height: 626px;
+    transform: translateX(-50% );
+    border-radius: 30px;
+    background-color: #100d1eaa;
+    border: 15px solid #fff;
+}
+
+.quizBox h2{
+    position: relative;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    transform: translateX(-50%);
+    user-select: none;
+}
