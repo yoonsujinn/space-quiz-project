@@ -31,8 +31,8 @@ let completeCunt = 0;
 // dragLine
 
 function startDrag(e) {
-    e.preventDefault();
     let scale = document.querySelector("#wrap").style.transform.split('scale(')[1].split(')')[0]
+    console.log(e)
     lineObj = e.target;
     lineObj.classList.add("isDragging")
 
@@ -48,8 +48,8 @@ function startDrag(e) {
     // console.log(e.target.getBoundingClientRect.width)
     offsetX = (e.clientX / scale) - lineObj.offsetLeft + (lineObj.style.width / 2);
     offsetY = (e.clientY / scale) - lineObj.offsetTop + (lineObj.style.height / 2);
-    startmouseX = (event.clientX + objWidth) / scale - e.offsetX;
-    startmouseY = (event.clientY + objHeight) / scale - e.offsetY;
+    startmouseX = (event.clientX / scale) - e.offsetX + objWidth;
+    startmouseY = (event.clientY / scale) - e.offsetY + objHeight;
     // console.log("확인 >>>>>>>>>>>>>>>", canvas.offsetLeft);
     isDragging = true;
     isDrawing = true;
@@ -114,7 +114,6 @@ function checkAnswer(e) {
             mouseY >= targetRect[i].top && mouseY <= targetRect[i].bottom) {
             dropcheck = true;
             droppedArea = target[i];
-            // console.log(target[i])
             checking();
         }
         // console.log("?????????????", e.target)
@@ -124,7 +123,6 @@ function checkAnswer(e) {
         redrawCanvas();
         e.target.style.top = pureOffsetY + 'px'
         e.target.style.left = pureOffsetX + 'px'
-        wrongSound()
     }
 }
 
@@ -133,42 +131,30 @@ function checking(e) {
     let objans = lineObj.getAttribute('drag-Line-left') || lineObj.getAttribute('drag-Line-right');
     let dropans = droppedArea.getAttribute('drag-Line-right') || droppedArea.getAttribute('drag-Line-left');
 
-    // console.log("Tlqkf", dropcheck);
+    console.log("Tlqkf", dropcheck);
 
-    if (lineObj.getAttribute('drag-Line-left') === droppedArea.getAttribute('drag-Line-right') || lineObj.getAttribute('drag-Line-right') === droppedArea.getAttribute('drag-Line-left')) {
-        if (objans === dropans) {
-            completeCunt++;
+    if (objans == dropans) {
+        redrawCanvas();
+        mouseEndX = (droppedArea.getBoundingClientRect().left / scale) - (canvas.getBoundingClientRect().left / scale) + droppedArea.getBoundingClientRect().width / 2
+        mouseEndY = (droppedArea.getBoundingClientRect().top / scale) - (canvas.getBoundingClientRect().top / scale) + droppedArea.getBoundingClientRect().height / 2
+        drawLine(startX, startY, mouseEndX, mouseEndY);
 
-            redrawCanvas();
-            // console.log(droppedArea.getBoundingClientRect())
-            mouseEndX = (droppedArea.getBoundingClientRect().left / scale) - (canvas.getBoundingClientRect().left / scale) + (droppedArea.getBoundingClientRect().width / scale) / 2
-            mouseEndY = (droppedArea.getBoundingClientRect().top / scale) - (canvas.getBoundingClientRect().top / scale) + (droppedArea.getBoundingClientRect().height / scale) / 2
-            drawLine(startX, startY, mouseEndX, mouseEndY);
+        console.log("cor")
+        answerCheck = true;
+        lines.push({ startX: startX, startY: startY, endX: mouseEndX, endY: mouseEndY });
 
-            // console.log("정답입니다")
-            answerCheck = true;
-            lines.push({ startX: startX, startY: startY, endX: mouseEndX, endY: mouseEndY });
+        checkObj = document.querySelectorAll(`[drag-Line-left="${objans}"], [drag-Line-right="${objans}"]`);
+        checkObj.forEach(e => e.classList.add("complete"))
 
-            checkObj = document.querySelectorAll(`[drag-Line-left="${objans}"], [drag-Line-right="${objans}"]`);
-            checkObj.forEach(e => e.classList.add("complete"))
-            corretSound()
-            lastPage()
-        }
-        else {
-            // console.log('오답입니다')
-            redrawCanvas();
-            lineObj.style.top = pureOffsetY + 'px'
-            lineObj.style.left = pureOffsetX + 'px'
-            wrongSound();
-        }
-    } else {
-        // console.log('오답입니다')
+        countPage()
+    }
+    else {
+        console.log('fail')
         redrawCanvas();
         lineObj.style.top = pureOffsetY + 'px'
         lineObj.style.left = pureOffsetX + 'px'
-        wrongSound();
-    };
-    // console.log("선 확인", lines)
+    }
+    console.log(lines)
     startmouseY = "";
     startmouseX = "";
     objWidth = "";
@@ -178,33 +164,23 @@ function checking(e) {
 
 }
 
-// function countPage() {
-//     completeCunt++;
-//     // console.log(completeCunt);
-//     if (completeCunt === 3 || completeCunt === 6) {
-//         console.log("한페이지 끝!! 다음페이지로 이동")
-//         popup.classList.add('dim')
-//         next_btn.classList.add('on')
-//     } else if (completeCunt === 9) {
-//         goodJopPopup2();
-//     }
-// }
-
-function next() {
-    let linequiz = lineObj.parentNode.parentNode.getAttribute("quizCunt")
-    console.log(completeCunt === linequiz)
-    if (completeCunt == linequiz) {
-        console.log("------------다음페이지로 이동")
+function countPage() {
+    completeCunt++;
+    console.log(completeCunt);
+    if (completeCunt === 3 || completeCunt === 6) {
+        console.log("한페이지 끝!! 다음페이지로 이동")
         popup.classList.add('dim')
         next_btn.classList.add('on')
-        completeCunt = 0;
-    }
-}
-function last() {
-    let linequiz = lineObj.parentNode.parentNode.getAttribute("quizCunt")
-    if (completeCunt == linequiz) {
-        goodJopPopup2();
-        completeCunt = 0;
+    } else if (completeCunt === 9) {
+        let goodPopup = document.createElement("div")
+        let char01 = document.createElement("div")
+
+        popup.classList.add('dim')
+        popup.appendChild(goodPopup)
+        goodPopup.classList.add('goodJop_popup', 'on')
+        goodPopup.appendChild(char01)
+        char01.classList.add('char_01')
+        setTimeout(() => { char01.classList.add('on') }, 1000);
     }
 }
 
@@ -225,9 +201,8 @@ function drawLine(x1, y1, x2, y2) {
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
     context.scale = (document.querySelector("#wrap").style.transform.split("scale(")[1].split(")")[0], document.querySelector("#wrap").style.transform.split("scale(")[1].split(")")[0])
-    context.strokeStyle = '#FFC305'; // Set line color
-    context.lineWidth = 7; // Set line width
-    // context.boderRadius = "50px";
+    context.strokeStyle = '#ffffff'; // Set line color
+    context.lineWidth = 5; // Set line width
     context.stroke();
     context.closePath();
 
@@ -236,3 +211,7 @@ function drawLine(x1, y1, x2, y2) {
 document.querySelectorAll(".dragLineObj").forEach(function (e) {
     e.addEventListener('mousedown', startDrag);
 })
+
+
+
+

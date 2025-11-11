@@ -4,7 +4,6 @@ window.addEventListener('load', function () {
   // 지역선언
   var quiz_p = document.querySelectorAll('[class*="quiz_"]')
   var quizBox = document.querySelectorAll('.quizBox')
-  var oxBox = document.querySelectorAll('.quizBox .oxBox')
   var ox_btn = document.querySelectorAll('.quizBox [class*="btn_icon"]')
   var answerBox = document.querySelectorAll('.quizBox.answer')
   var popup = document.querySelector('.popup_container')
@@ -18,47 +17,35 @@ window.addEventListener('load', function () {
   ox_btn.forEach((function (ox_btn, i) {
     ox_btn.addEventListener('click', function () {
       let lastPage = quiz_p[quiz_p.length - 1];
-
-      
       // 정답 클릭시
       if (ox_btn.attributes.length === 2) {
         console.log('정답!')
         this.classList.add('on')
         corretSound();
-
-        setTimeout((correctSet) => {
-          completeClass();
-          for (let i = 0; i < quizBox.length; i++) { quizBox[i].classList.add('off') }
-          for (let i = 0; i < answerBox.length; i++) {
-            answerBox[i].classList.add('dim')
-            answerBox[i].classList.remove('off')
+        completeClass();
+        for (let i = 0; i < quizBox.length; i++) { quizBox[i].classList.add('off') }
+        for (let i = 0; i < answerBox.length; i++) {
+          answerBox[i].classList.add('dim')
+          answerBox[i].classList.remove('off')
+        }
+        setTimeout(() => {
+          if (lastPage.classList.contains('complete')) {
+            popup.classList.remove('dim');
+            next_btn.classList.remove('on')
+          } else {
+            popup.classList.add('dim');
+            next_btn.classList.add('on')
           }
-          setTimeout(() => {
-            if (lastPage.classList.contains('complete')) {
-              popup.classList.remove('dim');
-              next_btn.classList.remove('on')
-            } else {
-              popup.classList.add('dim');
-              next_btn.classList.add('on')
-            }
-          }, 2000);
-          setTimeout(() => { goodJopPopup() }, 4000);
-        }, 1500);
+        }, 2000);
 
+        setTimeout(() => { goodJopPopup() }, 4000);
       }
 
       // 오답 클릭시(대기)
       else {
         console.log('오답!')
-        this.classList.add('wrongAni')
-        setTimeout(() => { this.classList.remove('wrongAni') }, 1000);
         wrongSound();
       }
-
-      oxBox.forEach(function(oxBox){
-        oxBox.classList.add('pointerOff')
-        setTimeout(() => { oxBox.classList.remove('pointerOff') }, 1300);
-      })
     })
   }))
 

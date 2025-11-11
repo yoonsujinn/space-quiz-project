@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
   <!-- <meta name="viewport" content="width=1280, height=720, initial-scale=1.0" /> -->
   <meta name="viewport" content="initial-scale=1, width=device-width" />
-  <title>Space Quiz Project</title>
-  <link rel="icon" href="../common/images/icon/icon_gohome.png">
+
+  <title>우주 퀴즈 프로젝트</title>
   <link rel="stylesheet" href="../common/common.css" />
   <link rel="stylesheet" href="./css/dragLine.css">
 </head>
@@ -40,7 +40,6 @@
               <div class="char_03"></div>
               <span>알맞은 그림과 연결해 봐!</span>
             </h2>
-            <span class="quizCnt">총 <span class="thisQuiz">1</span> / 3문제</span>
             <ul class="leftEx">
               <li class="ex01"></li>
               <li class="ex02"></li>
@@ -52,8 +51,8 @@
               <li class="ex03">토성</li>
             </ul>
             <canvas class="canvas1" width="740px" height="440px"></canvas>
-            <ul class="lineQuiz" quizCunt="3">
-              <li class=" leftLine">
+            <ul class="lineQuiz">
+              <li class="leftLine">
                 <!-- 1 -->
                 <div class="dragLineObj row1" drag-Line-left="1"></div>
                 <div class="dragLineArea row1" drag-Line-left="1"></div>
@@ -84,8 +83,6 @@
               <div class="char_03"></div>
               <span>어떤 상황에 나오는 표정일까?</span>
             </h2>
-            <span class="quizCnt">총 <span class="thisQuiz">2</span> / 3문제</span>
-
             <ul class="leftEx">
               <li class="ex01"></li>
               <li class="ex02"></li>
@@ -97,7 +94,7 @@
               <li class="ex03">내기에서 졌어요.</li>
             </ul>
             <canvas class="canvas2" width="740" height="440"></canvas>
-            <ul class="lineQuiz" quizCunt="3">
+            <ul class="lineQuiz">
               <li class="leftLine">
                 <!-- 1 -->
                 <div class="dragLineObj row1" drag-Line-left="4"></div>
@@ -129,8 +126,6 @@
               <div class="char_03"></div>
               <span>어느 나라 음식일까?</span>
             </h2>
-            <span class="quizCnt"><span class="thisQuiz">마지막</span> 문제</span>
-
             <ul class="leftEx">
               <li class="ex01"></li>
               <li class="ex02"></li>
@@ -142,7 +137,7 @@
               <li class="ex03"></li>
             </ul>
             <canvas class="canvas3" width="740" height="440"></canvas>
-            <ul class="lineQuiz" quizCunt="3">
+            <ul class="lineQuiz">
               <li class="leftLine">
                 <!-- 1 -->
                 <div class="dragLineObj row1" drag-Line-left="7"></div>
@@ -183,15 +178,15 @@
   <script src="./js/quiz.js"></script>
   <script src="./js/dragLine.js"></script>
   <script>
-    const nextBtn = document.querySelector(".nextBtn");
+    const next = document.querySelector(".nextBtn");
+
     function clearCanvas() {
       context.clearRect(0, 0, canvas.width, canvas.height);
     }
-
-    nextBtn.addEventListener("click", function () {
+    next.addEventListener("click", function () {
       setTimeout(() => {
         lines = [];
-        clearCanvas()
+
       }, 1000);
     });
   </script>
